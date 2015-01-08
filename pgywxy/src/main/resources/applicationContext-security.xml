@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:sec="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd"
+	default-lazy-init="true">
+	
+	<sec:http auto-config="true" servlet-api-provision="false" access-denied-page="/html/error_page_access_denied.html">
+		<sec:form-login login-page="/index.jsp" login-processing-url="/admin/login/check" default-target-url="/admin/page!main.action" authentication-failure-url="/index.jsp" always-use-default-target="true"  />
+		<sec:logout invalidate-session="true" logout-success-url="/index.jsp" logout-url="/admin/logout" />
+		
+		<!-- 后台登录 -->
+		<sec:intercept-url pattern="/index.jsp" filters="none" />
+		<!-- 管理员管理 -->
+		<sec:intercept-url pattern="/admin/admin!**" access="ROLE_ADMIN" />
+		<!-- 角色管理 -->
+		<sec:intercept-url pattern="/admin/role!**" access="ROLE_ROLE" />
+		<!-- 系统设置 -->
+		<sec:intercept-url pattern="/admin/setting!**" access="ROLE_SETTING" />
+		<!-- 基础管理权限 -->
+		<sec:intercept-url pattern="/admin/**.action" access="ROLE_BASE" />
+		<!-- 会员等级管理 -->
+		<sec:intercept-url pattern="/admin/member_rank!**" access="ROLE_MEMBER_RANK" />
+	</sec:http>
+
+	<sec:authentication-manager alias="authenticationManager">
+		<sec:authentication-provider user-service-ref="adminDetailsService">
+			<sec:password-encoder hash="md5" />
+		</sec:authentication-provider>
+	</sec:authentication-manager>
+
+</beans>

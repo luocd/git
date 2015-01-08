@@ -1,0 +1,141 @@
+@charset "utf-8";
+/* CSS Document */
+body {width:1000px; margin:0 auto; font-size:12px; color:#333; line-height:24px; font-family:Arial, Helvetica, sans-serif;}
+a{text-decoration:none; color:#333;}
+a:hover{ text-decoration:underline; color:#039;}
+a img{ border:1px #eee solid;width:100%;height:100%;}
+*{ padding:0; margin:0;}
+ul li{
+	list-style:none;
+	}
+h1{
+	font-size:14px;
+	font-weight:700;
+	background-color:#f6f6f6;
+	line-height:30px;
+	margin:1px;
+	height:30px;
+	padding-left:10px;
+	border-bottom:1px #eee solid;
+	}
+h1 a{
+	float:right;
+	font-size:12px;
+	font-weight:400;
+	color:#999;
+	padding-right:10px;
+	}
+.header{
+	position:relative;
+	height:202px;
+	background: url(../images/banner.jpg) no-repeat;
+	margin:auto;
+	width:1000px;
+	}
+.menu{
+	position:absolute;
+	width:703px;
+	height:43px;
+	background:url(../images/nav_bg.jpg) no-repeat bottom;
+	margin-top:155px;
+	overflow:hidden;
+	}
+.content {margin:auto; width:1000px;}
+.mycontent {width:1000px;}
+.menu ul{
+	margin:0 28px;
+	}
+.menu ul li{
+	float:left;
+	display:inline;
+	font-size:14px;
+	font-weight:700;
+	line-height:40px;
+	border-left:1px #eee solid;
+	border-right:1px #d0d0d0 solid;
+	}
+.menu ul li a{
+	float:left;
+	color:#666;
+	padding:0 35px;
+	}
+.menu ul li a:hover,.menu ul li a.sec{
+	height:43px;
+	color:#333;
+	background:url(../images/nav_sec_bg.jpg) repeat-x;
+	}
+.left{
+	float:left;
+	width:180px;
+	border:1px #ddd solid;
+	margin-top:15px;
+	}
+.left ul{
+	margin-left:12px;
+	}
+.left ul li{
+	background-color:#f9f9f9;
+	border-bottom:1px #ddd dotted;
+	padding-top:8px;
+	background:url(../images/icon.jpg) no-repeat 0 16px;
+	padding-left:15px;
+	}
+.about{
+	float:right;
+	width:628px;
+	margin-top:15px;
+	border:1px #ddd solid;
+	}
+.about p{
+	margin:12px 15px;
+	text-indent:2em;
+	color:#666;
+	}
+.rz{
+	float:left;
+	width:998px;
+	border:1px #ddd solid;
+	margin-top:15px;
+	}
+.rz ul{
+	margin:0 3px;
+	}
+.rz ul li{
+	float:left;
+	display:inline;
+	margin:12px;
+	width:172;
+	height:201;
+	}
+.footer{
+	float:left;
+	width:1000px;
+	text-align:center;
+	color:#999;
+	margin-top:10px;
+	}
+	
+#focus {float:left;
+	margin:15px 0 0 15px; width:350px; height:200px; overflow:hidden; position:relative;}
+#focus ul {height:200px; position:absolute;}
+#focus ul li {float:left; width:350px; height:200px; overflow:hidden; position:relative; background:#000;}
+#focus ul li div {position:absolute; overflow:hidden;}
+#focus .btnBg {position:absolute; width:350px; height:20px; left:0; bottom:0; background:#000;}
+#focus .btn {position:absolute; width:320px; height:10px; padding:5px 10px; right:0; bottom:0; text-align:right;}
+#focus .btn span {display:inline-block; _display:inline; _zoom:1; width:25px; height:10px; _font-size:0; margin-left:5px; cursor:pointer; background:#fff;}
+#focus .btn span.on {background:#fff;}
+#focus .preNext {width:45px; height:100px; position:absolute; top:90px; background:url(img/sprite.png) no-repeat 0 0; cursor:pointer;}
+#focus .pre {left:0;}
+#focus .next {right:0; background-position:right top;}
+
+.tBox
+{
+	background-color: #eff3fb;
+	filter: progid:DXImageTransform.Microsoft.Shadow(Color=#333333,Direction=120,strength=6);
+	vertical-align: middle;
+	text-align: center;
+	border-right: #33ccff thin ridge;
+	border-top: #33ccff thin ridge;
+	border-left: #33ccff thin ridge;
+	border-bottom: #33ccff thin ridge;
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xunx> 
+	<description>配置文件</description>  
+	<setting> 
+		<systemName>管理系统</systemName>  
+		<systemVersion>2.1</systemVersion>  
+		<systemDescription>管理系统基础框架</systemDescription>  
+		<contextPath/>  
+		<imageUploadPath>/upload/image/{date(yyyyMM)}</imageUploadPath>  
+		<imageBrowsePath>/upload/image</imageBrowsePath>  
+		<adminLoginUrl>/index.jsp</adminLoginUrl>  
+		<adminLoginProcessingUrl>/admin/login/check</adminLoginProcessingUrl>
+		<shopName>讯享校园管理系统</shopName>  
+		<shopUrl>http://www.xunx.com.cn</shopUrl>  
+		<shopLogoPath>/images/logo.jpg</shopLogoPath>  
+		<smtpFromMail>test@xunx.com.cn</smtpFromMail>  
+		<smtpHost>smtp.xunx.com.cn</smtpHost>  
+		<smtpPort>25</smtpPort>  
+		<smtpUsername>test</smtpUsername>  
+		<smtpPassword></smtpPassword>
+		<isLoginFailureLock>true</isLoginFailureLock>  
+		<loginFailureLockCount>5</loginFailureLockCount>  
+		<loginFailureLockTime>5</loginFailureLockTime>  
+	</setting>
+	<logConfig> 
+		<item operation="系统设置" actionClass="com.xunx.pgywxyweb.action.admin.SettingAction" actionMethod="update"/>  
+		<item operation="添加管理员" actionClass="com.xunx.pgywxyweb.action.admin.AdminAction" actionMethod="save"/>  
+		<item operation="删除管理员" actionClass="com.xunx.pgywxyweb.action.admin.AdminAction" actionMethod="delete"/>  
+		<item operation="编辑管理员" actionClass="com.xunx.pgywxyweb.action.admin.AdminAction" actionMethod="update"/> 
+	</logConfig> 
+</xunx>

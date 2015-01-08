@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+        "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+    <!--
+	<constant name="struts.convention.default.parent.package" value="crud-default" />
+	<constant name="struts.convention.package.locators" value="web" />
+	<constant name="struts.convention.package.locators.basePackage" value="com.xunx.systemAdminFrame" />
+	<constant name="struts.convention.result.path" value="/WEB-INF/template/" />
+	-->
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.custom.i18n.resources" value="i18n" />
+	<constant name="struts.i18n.reload" value="false" />
+	<constant name="struts.convention.classes.reload" value="false" />
+	
+	<constant name="struts.convention.action.packages" value="com.xunx.pgywxy.web.action" />
+	<!--
+	<constant name="struts.convention.package.locators" value="action" />
+	<constant name="struts.convention.package.locators.basePackage" value="com.xunx.systemAdminFrame.web" />
+	-->
+	<constant name="struts.serve.static.browserCache" value="true" />
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.action.extension" value="action" />
+	<constant name="struts.multipart.maxSize" value="-1" />
+	<constant name="struts.convention.result.path" value="/WEB-INF/template/" />
+	<constant name="struts.convention.action.name.separator" value="_" />
+	<constant name="struts.action.extension" value="action,html"></constant>
+	<!-- -->
+	<constant name="struts.freemarker.manager.classname" value="com.xunx.pgywxy.common.FreemarkerManager" />
+<!--	<constant name="struts.action.extension" value="html" />-->
+     
+	<package name="basePackage" extends="struts-default">
+		<interceptors>
+			<interceptor-stack name="baseStack">
+                <interceptor-ref name="exception" />
+                <interceptor-ref name="alias" />
+                <interceptor-ref name="servletConfig" />
+                <interceptor-ref name="i18n" />
+                <interceptor-ref name="prepare" />
+                <interceptor-ref name="chain" />
+                <interceptor-ref name="debugging" />
+                <interceptor-ref name="scopedModelDriven" />
+                <interceptor-ref name="modelDriven" />
+                <interceptor-ref name="checkbox" />
+                <interceptor-ref name="multiselect" />
+                <interceptor-ref name="staticParams" />
+                <interceptor-ref name="actionMappingParams" />
+                <interceptor-ref name="params">
+					<param name="excludeParams">dojo\..*,^struts\..*,.*\\u0023.*,.*\\x5Cu0023.*,.*\\x5cu0023.*</param>
+                </interceptor-ref>
+                <interceptor-ref name="conversionError" />
+                <interceptor-ref name="validation">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                    <param name="validateAnnotatedMethodOnly">true</param>
+                </interceptor-ref>
+                <interceptor-ref name="workflow">
+                    <param name="excludeMethods">input,back,cancel,browse</param>
+                </interceptor-ref>
+            </interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="baseStack" />
+
+		<default-action-ref name="errorPage404Action" />
+
+		<action name="errorPage404Action">
+			<result type="redirect">/html/error_page_404.html</result>
+		</action>
+	</package>
+
+	<package name="admin" extends="basePackage" namespace="/admin">
+		<interceptors>
+		    <interceptor name="logInterceptor" class="com.xunx.pgywxy.interceptor.LogInterceptor" />
+			<interceptor-stack name="adminStack">
+				<interceptor-ref name="fileUpload">
+					<param name="allowedTypes">image/jpeg,image/pjpeg,image/gif,image/bmp,image/x-ms-bmp,image/png,image/x-png,text/html</param>
+					<param name="maximumSize">2097152</param>
+				</interceptor-ref>
+				<interceptor-ref name="logInterceptor" />
+				<interceptor-ref name="baseStack" />
+			</interceptor-stack>
+		</interceptors>
+
+		<default-interceptor-ref name="adminStack" />
+
+		<global-results>
+			<result name="error" type="freemarker">/WEB-INF/template/admin/error.ftl</result>
+			<result name="ajaxError" type="freemarker">/WEB-INF/template/admin/ajax_error.ftl</result>
+			<result name="success" type="freemarker">/WEB-INF/template/admin/success.ftl</result>
+		</global-results>
+	</package>
+	
+</struts>
